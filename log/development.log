@@ -852,3 +852,22 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
   Rendered posts/edit.html.erb within layouts/application (2.6ms)
 Completed 200 OK in 34ms (Views: 22.6ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/posts/2" for 126.2.63.14 at 2018-09-29 01:38:00 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VwF8PiewauYQD7YgyBBLU0SC7JO2out+uQPRVzBdPW9zyNg9bRIZBRNPJS6KDX+hn5DzE9+budRhWA1kjX55AQ==", "post"=>{"title"=>"Rails Introduction bbb", "description"=>"edit"}, "commit"=>"Update Post", "id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", nil], ["description", nil], ["updated_at", "2018-09-29 01:38:00.077945"], ["id", 2]]
+  [1m[35m (17.5ms)[0m  commit transaction
+Redirected to http://165.227.16.205:53416/posts/2
+Completed 302 Found in 23ms (ActiveRecord: 18.1ms)
+
+
+Started GET "/posts/2" for 126.2.63.14 at 2018-09-29 01:38:00 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.2ms)
